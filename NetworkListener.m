@@ -33,22 +33,7 @@
         
         NSParameterAssert([reachability isKindOfClass:[reachability class]]);
         
-        switch (networkStatus) {
-            case NotReachable: {
-                block(NotReachable);
-            } break;
-                
-            case ReachableViaWiFi: {
-                block(ReachableViaWiFi);
-            } break;
-                
-            case ReachableViaWWAN: {
-                block(ReachableViaWWAN);
-            } break;
-                
-            default:
-                break;
-        }
+        block(networkStatus);
     }];
     
     [self.reachability startNotifier];
